@@ -1,4 +1,3 @@
-// Problem-1
 function formatString(input: string, toUpper?: boolean): string {
   if (toUpper === undefined || toUpper === true) {
     return input.toUpperCase();
@@ -10,8 +9,6 @@ function formatString(input: string, toUpper?: boolean): string {
 // console.log(formatString("Hello World"));
 // console.log(formatString("Hello World", true));
 // console.log(formatString("Hello World", false));
-
-// Problem-2
 
 function filterByRating(
   items: { title: string; rating: number }[]
@@ -26,15 +23,81 @@ const books = [
 
 //   console.log(filterByRating(books));
 
-// Problem-3
-
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   return arrays.reduce((acc, curr) => acc.concat(curr), []);
 }
 
 // console.log(concatenateArrays([1, 2, 3], [4, 5, 6], [7, 8, 9]));
 
+{
+  class vehicle {
+    make: string;
+    year: number;
 
-// Problem-4
+    constructor(make: string, year: number) {
+      this.make = make;
+      this.year = year;
+    }
+
+    getInfo() {
+      console.log(`Make: ${this.make}, Year: ${this.year}`);
+    }
+  }
+
+  class Car extends vehicle {
+    model: string;
+
+    constructor(make: string, year: number, model: string) {
+      super(make, year);
+      this.model = model;
+    }
+
+    getModel() {
+      console.log(`Model: ${this.model}`);
+    }
+  }
+
+  const myCar = new Car("Toyota", 2020, "Corolla");
+//   myCar.getInfo(); 
+//   myCar.getModel(); 
+}
+
+function processValue(value: string | number): number {
+  if (typeof value === "string") {
+    return value.length;
+  } else if (typeof value === "number") {
+    return value * 2;
+  } else {
+    return value;
+  }
+};
+// console.log(processValue("hello"));
+// console.log(processValue(10));     
+
+
+interface Product {
+    name: string;
+    price: number;
+  }
+  
+  function getMostExpensiveProduct(products: Product[]): Product | null {
+      if (products.length === 0) {
+        return null;
+      };
+      let mostExpensiveProduct: Product | null = null;
+      products.forEach((product)=>{
+        if (mostExpensiveProduct === null || product.price > mostExpensiveProduct.price) {
+          mostExpensiveProduct = product;
+        }
+      });
+      return mostExpensiveProduct;
+  };
+  const products = [
+    { name: "Pen", price: 10 },
+    { name: "Notebook", price: 25 },
+    { name: "Bag", price: 50 }
+  ];
+  
+//   console.log(getMostExpensiveProduct(products));  
 
 
